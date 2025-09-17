@@ -7,27 +7,18 @@ import streamlit as st
 st.title("Laço de Repetição - While em Streamlit")
 
 QUANTIDADE_NOTAS = 2
+notas = []
 soma = 0 
 
 
 for i in range(QUANTIDADE_NOTAS):
-    notas = st.number_input(f"Digite sua {i+1}° nota:")
-if st.button("verificar"):
-    if notas > 10:
-        st.error("Notas maior que 10. Não aceitas!")
-    elif notas < 0:
-        st.error("Notas menor que 0. Não aceitas!")
-    else:
-        st.success("notas aceitas")
+    notas = st.number_input(f"Digite sua {i+1}° nota:", min_value=0 , max_value=10) 
 
 if st.button("visualizar média"):
-            soma = soma + notas 
-            media = soma /2 
-            st.info(f"Média = {media}")
-       
-       
-#TA COM ERRO, CONSERTAR !!!!
-        
+    soma = soma + notas 
+    media = soma /2 
+    st.info(f"Média = {media}")
+
 
 
 
